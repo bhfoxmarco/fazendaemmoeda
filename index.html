@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazenda Limoeiro — Moeda, MG | Oportunidade Exclusiva</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            verde: {
+              profundo: '#1e3f20',
+              medio:   '#2d5a30',
+              claro:   '#4a7c4e',
+            },
+            terra:   '#8c6239',
+            areia:   '#f5f0e8',
+            creme:   '#faf8f3',
+            dourado: '#c8922a',
+            laranja: '#b05f1a',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:  ['Jost', 'sans-serif'],
+          },
+          /* Escala de fontes aumentada +3 pontos em relação ao padrão Tailwind:
+             xs: 12→15px | sm: 14→17px | base: 16→19px | lg: 18→21px | xl: 20→23px */
+          fontSize: {
+            'xs':   ['15px', { lineHeight: '1.5' }],
+            'sm':   ['17px', { lineHeight: '1.6' }],
+            'base': ['19px', { lineHeight: '1.7' }],
+            'lg':   ['21px', { lineHeight: '1.6' }],
+            'xl':   ['23px', { lineHeight: '1.5' }],
+            '2xl':  ['26px', { lineHeight: '1.4' }],
+            '3xl':  ['33px', { lineHeight: '1.3' }],
+            '4xl':  ['39px', { lineHeight: '1.2' }],
+            '5xl':  ['54px', { lineHeight: '1.1' }],
+            '6xl':  ['63px', { lineHeight: '1.05' }],
+            '7xl':  ['78px', { lineHeight: '1.0' }],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Animação de entrada ao rolar a página */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Linha decorativa dourada abaixo dos títulos */
+    .divider-gold::after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 2px;
+      background: #c8922a;
+      margin: 1rem auto 0;
+    }
+
+    /* Scrollbar (barra de rolagem) discreta */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #faf8f3; }
+    ::-webkit-scrollbar-thumb { background: #2d5a30; border-radius: 3px; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Blink da seta — pulsa para indicar que há mais conteúdo abaixo */
+    @keyframes setaBlink {
+      0%, 100% { opacity: 1; transform: translateY(0); }
+      50%       { opacity: 0.3; transform: translateY(6px); }
+    }
+    .seta-blink {
+      animation: setaBlink 1.5s ease-in-out infinite;
+    }
+
+    /* Blink suave — fade in/out elegante para destacar valores */
+    @keyframes valorBlink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .valor-blink {
+      animation: valorBlink 2s ease-in-out infinite;
+    }
+
+    /* Entrada suave — cada elemento sobe e aparece em sequência */
+    @keyframes entradaSuave {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* VENDA e R$ 2,65 entram juntos — boxes com 1s de pausa entre si */
+    .entrada { opacity: 0; animation: entradaSuave 0.9s ease forwards; }
+    .entrada-1 { animation-delay: 0.2s; }  /* VENDA — entra logo           */
+    .entrada-2 { animation-delay: 0.7s; }  /* R$ 2,65 — logo após VENDA    */
+    .entrada-3 { animation-delay: 2.0s; }  /* Box Propriedade — 1s pausa   */
+    .entrada-4 { animation-delay: 3.2s; }  /* 83 Hectares — 1s pausa       */
+    .entrada-5 { animation-delay: 4.4s; }  /* Box Oportunidade — 1s pausa  */
+
+    /* Grain — textura de grão sobre o hero para dar profundidade visual */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+  </style>
+</head>
+
+<body class="bg-creme font-sans text-verde-profundo">
+
+  <!-- ══════════════════════════════════════
+       NAVBAR — Barra de Navegação Superior Fixa
+  ══════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div style="display: flex; align-items: center; gap: 5px; flex: 1; flex-wrap: nowrap; overflow: hidden;">
+        <span style="font-family: 'Cormorant Garamond', Georgia, serif; color: #ffffff; font-weight: 900; font-size: clamp(22px, 6vw, 40px); text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; line-height: 1;">
+          Fazenda
+        </span>
+        <span style="display: inline-block; width: clamp(12px, 2.5vw, 22px); height: 3px; background: #FFD700; margin-bottom: 3px; flex-shrink: 0;"></span>
+        <span style="font-family: 'Cormorant Garamond', Georgia, serif; color: #FFD700; font-weight: 900; font-size: clamp(22px, 6vw, 40px); text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; line-height: 1;">
+          MOEDA
+        </span>
+      </div>
+      <a href="#contato"
+         class="bg-dourado hover:bg-laranja text-white font-sans font-bold
+                tracking-wider uppercase transition-colors duration-300 text-center" style="font-size: clamp(10px, 2vw, 13px); flex-shrink: 0; white-space: nowrap; padding: 6px 8px;">
+        Fale Comigo Agora
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════
+       HERO — Foto aérea real como fundo
+  ══════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden grain">
+
+    <!-- FOTO AÉREA real da fazenda como plano de fundo -->
+    <img src="fotos/aerea.jpg"
+         alt="Vista aérea da Fazenda Limoeiro — Moeda, MG"
+         class="absolute inset-0 w-full h-full object-cover"
+         style="object-position: center 35%;" />
+
+    <!-- Camadas escuras para tornar o texto legível sobre a foto -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-black/75"></div>
+
+    <!-- Conteúdo central -->
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto" style="padding-top: clamp(60px, 10vw, 96px);">
+
+      <!-- VENDA gigante -->
+      <h1 class="font-serif text-white uppercase entrada entrada-1" style="font-weight: 900; font-size: clamp(90px, 26vw, 180px); letter-spacing: -0.02em; line-height: 0.9; margin: 0 0 0.2rem;">
+        VENDA
+      </h1>
+
+      <!-- R$ 2,65 o m² — maior + blink suave -->
+      <p class="font-sans font-bold uppercase valor-blink entrada entrada-2 mb-5" style="color: #FFD700; font-size: clamp(18px, 5vw, 28px); letter-spacing: 0.3em; margin-top: 0.4rem;">
+        R$ 2,65 O M²
+      </p>
+
+      <!-- BOX 1 — UMA PROPRIEDADE COMPLETA -->
+      <div class="block px-4 py-3 mb-3 entrada entrada-3" style="background: #000000; border: 1px solid #FFD700;">
+        <p class="font-sans font-bold uppercase m-0" style="color: #FFD700; font-size: clamp(15px, 3.5vw, 18px); letter-spacing: 0.15em; line-height: 1.5;">
+          UMA PROPRIEDADE <span style="color: #ffffff; font-size: clamp(17px, 4vw, 21px);">COMPLETA</span><br/>
+          POR <span class="valor-blink" style="color: #FFD700; font-size: clamp(17px, 4vw, 21px);">R$ 2.200.000,00</span>
+        </p>
+      </div>
+
+      <!-- 83 HECTARES entre os boxes -->
+      <p class="font-sans font-bold uppercase text-white entrada entrada-4" style="font-size: clamp(13px, 3vw, 18px); letter-spacing: 0.25em; margin: 0.6rem 0;">
+        83 Hectares · Mata Nativa · Nascente Cristalina · <span style="color: #FFD700;">65 km de BH</span>
+      </p>
+
+      <!-- BOX 2 — OPORTUNIDADE ÚNICA -->
+      <div class="block px-4 py-3 mb-6 entrada entrada-5" style="background: #000000; border: 1px solid #FFD700;">
+        <p class="font-sans font-bold uppercase m-0" style="color: #FFD700; font-size: clamp(15px, 3.5vw, 18px); letter-spacing: 0.15em; line-height: 1.4;">
+          ✦ Oportunidade Única<br/>de Investimento · Moeda, MG ✦
+        </p>
+      </div>
+
+      <!-- Linha divisória dourada -->
+      <div class="flex items-center justify-center gap-4 mb-8 mt-2">
+        <div class="h-px w-16" style="background: rgba(255,215,0,0.5);"></div>
+        <div class="w-1.5 h-1.5 rotate-45" style="background: #FFD700;"></div>
+        <div class="h-px w-16" style="background: rgba(255,215,0,0.5);"></div>
+      </div>
+
+      <!-- Botões de ação (CTA = Call to Action, chamada para ação) -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531987139637?text=Ol%C3%A1%2C+tenho+interesse+na+Fazenda+Limoeiro+em+Moeda%2FMG."
+           target="_blank"
+           class="bg-dourado hover:bg-laranja text-white font-sans font-medium text-base tracking-widest uppercase
+                  px-8 py-4 transition-all duration-300 hover:scale-105 shadow-lg">
+          💬 Conversar pelo WhatsApp
+        </a>
+        <a href="#numeros"
+           class="border-2 border-white hover:border-dourado hover:text-dourado text-white font-sans
+                  font-bold text-base tracking-widest uppercase px-8 py-4 transition-all duration-300
+                  flex flex-col items-center gap-1">
+          <span>Conhecer o Imóvel</span>
+          <span class="seta-blink text-2xl leading-none" style="color: #FFD700;">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Seta de rolagem animada -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+      <span class="font-sans text-white/70 text-xs tracking-widest uppercase" style="font-size: 10px; letter-spacing: 0.2em;">
+        Role para ver mais
+      </span>
+      <svg class="w-7 h-7 seta-blink" fill="none" stroke="#FFD700" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FAIXA DE LOCALIZAÇÃO
+  ══════════════════════════════════════ -->
+  <div class="bg-verde-profundo py-5 px-6">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm font-sans tracking-wider uppercase">
+      <span>📍 Região do Limoeiro · Moeda, MG</span>
+      <span class="hidden sm:block text-dourado">|</span>
+      <span>🛣️ 3,3 km até o Asfalto</span>
+      <span class="hidden sm:block text-dourado">|</span>
+      <span>🚗 ≈ 65 km de BH (Belo Horizonte)</span>
+      <span class="hidden sm:block text-dourado">|</span>
+      <span>⚡ Energia com Transformador Próprio 5kVA</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       NÚMEROS DO IMÓVEL
+  ══════════════════════════════════════ -->
+  <section id="numeros" class="py-24 px-6 bg-areia">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">O Patrimônio em Números</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light divider-gold">
+          Fazenda Limoeiro · 83 ha
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="reveal bg-white border border-verde-claro/20 p-8 text-center shadow-sm hover:shadow-md transition-all hover:border-dourado/40">
+          <div class="text-4xl mb-3">🌿</div>
+          <div class="font-serif text-5xl font-semibold text-verde-profundo leading-none mb-2">83</div>
+          <div class="font-sans text-sm text-terra tracking-wider uppercase font-medium">Hectares<br/>Registrados</div>
+        </div>
+        <div class="reveal bg-verde-profundo text-white p-8 text-center shadow-sm hover:shadow-md transition-all" style="transition-delay:.1s">
+          <div class="text-4xl mb-3">💧</div>
+          <div class="font-serif text-5xl font-semibold leading-none mb-2 text-dourado">∞</div>
+          <div class="font-sans text-sm tracking-wider uppercase font-medium text-white/80">Nascente<br/>Cristalina Própria</div>
+        </div>
+        <div class="reveal bg-white border border-verde-claro/20 p-8 text-center shadow-sm hover:shadow-md transition-all hover:border-dourado/40" style="transition-delay:.2s">
+          <div class="text-4xl mb-3">🌳</div>
+          <div class="font-serif text-5xl font-semibold text-verde-profundo leading-none mb-2">50</div>
+          <div class="font-sans text-sm text-terra tracking-wider uppercase font-medium">Hectares de<br/>Mata Nativa Densa</div>
+        </div>
+        <div class="reveal bg-terra text-white p-8 text-center shadow-sm hover:shadow-md transition-all" style="transition-delay:.3s">
+          <div class="text-4xl mb-3">🏗️</div>
+          <div class="font-serif text-4xl font-semibold leading-none mb-2">250m²</div>
+          <div class="font-sans text-sm tracking-wider uppercase font-medium text-white/80">Curral Estruturado<br/>em Eucalipto</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6">
+        <div class="reveal bg-white border border-verde-claro/20 p-6 text-center hover:border-dourado/40 transition-all">
+          <div class="font-serif text-3xl font-semibold text-verde-profundo mb-1">16 ha</div>
+          <div class="font-sans text-sm text-terra tracking-wider uppercase">Pasto Formado<br/>(Braquiária)</div>
+        </div>
+        <div class="reveal bg-white border border-verde-claro/20 p-6 text-center hover:border-dourado/40 transition-all" style="transition-delay:.1s">
+          <div class="font-serif text-3xl font-semibold text-verde-profundo mb-1">26 ha</div>
+          <div class="font-sans text-sm text-terra tracking-wider uppercase">Área de Expansão<br/>de Pastagem</div>
+        </div>
+        <div class="reveal col-span-2 md:col-span-1 bg-white border border-verde-claro/20 p-6 text-center hover:border-dourado/40 transition-all" style="transition-delay:.2s">
+          <div class="font-serif text-3xl font-semibold text-verde-profundo mb-1">150 m²</div>
+          <div class="font-sans text-sm text-terra tracking-wider uppercase">Sede Centenária<br/>Arquitetura Colonial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       GALERIA — Foto aérea + Mapa 3D
+  ══════════════════════════════════════ -->
+  <section id="galeria" class="py-24 px-6 bg-verde-profundo">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">Vista Aérea & Demarcação</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-white divider-gold">
+          Conheça Cada Centímetro
+        </h2>
+      </div>
+
+      <!-- Foto aérea principal -->
+      <div class="reveal mb-6">
+        <img src="fotos/aerea.jpg"
+             alt="Vista aérea da Fazenda Limoeiro — sede, pastos e mata nativa"
+             class="w-full shadow-xl"
+             style="max-height:520px; object-fit:cover; object-position: center 40%;" />
+        <p class="text-sm text-center font-sans text-white/45 mt-3 italic">
+          Vista aérea — sede centenária, pastos formados e mata nativa da Fazenda Limoeiro
+        </p>
+      </div>
+
+      <!-- Mapa 3D com limites demarcados -->
+      <div class="reveal">
+        <img src="fotos/mapa3d.jpg"
+             alt="Mapa 3D com demarcação dos limites da Fazenda Limoeiro"
+             class="w-full shadow-xl" />
+        <div class="bg-black/40 px-6 py-4 text-center">
+          <p class="font-sans text-sm text-white/65 tracking-wider">
+            🗺️ Demarcação 3D dos limites — <strong class="text-white">linha branca:</strong> perímetro registrado &nbsp;·&nbsp;
+            <strong class="text-blue-300">linha azul:</strong> curso d'água perene
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       POTENCIAL DA TERRA
+  ══════════════════════════════════════ -->
+  <section id="potencial" class="py-24 px-6 bg-creme">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">Contexto e Diferenciais</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light divider-gold">Uma Terra Completa.<br/>Um Preço Impossível de Ignorar.</h2>
+        <p class="mt-8 font-sans font-light text-verde-claro max-w-3xl mx-auto leading-relaxed text-base">
+          Em Moeda, município encravado na Serra do Quadrilátero Ferrífero a apenas 65 km de Belo Horizonte,
+          existe uma propriedade que reúne o que o mercado raramente coloca à venda: 83 hectares contínuos
+          com vocação múltipla, beleza natural intocada e um preço que, quando dividido por metro quadrado,
+          desafia qualquer comparativo urbano ou rural da região.
+        </p>
+        <p class="mt-4 font-sans font-light text-verde-claro max-w-3xl mx-auto leading-relaxed text-base">
+          São 50 hectares de mata nativa densa e preservada — um ativo ambiental de valor crescente, elegível
+          para projetos de crédito de carbono e reserva legal. Uma nascente cristalina própria e um curso
+          d'água perene garantem independência hídrica total, um diferencial cada vez mais raro e valioso no Brasil.
+          A sede centenária de 150m² em arquitetura colonial de pau a pique e pedra bruta é um patrimônio
+          histórico com potencial para pousada boutique ou retiro exclusivo.
+        </p>
+        <div class="inline-block mt-6 px-8 py-4" style="background: #000; border: 1px solid #FFD700;">
+          <p class="font-serif font-bold text-white m-0" style="font-size: clamp(16px, 3vw, 22px);">
+            Tudo isso por <span style="color: #FFD700;">R$ 2.200.000,00</span> — apenas
+            <span style="color: #FFD700;">R$ 2,65 o metro quadrado.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="reveal flex gap-6 p-8 bg-white border-l-4 border-verde-profundo shadow-sm hover:shadow-md transition-all">
+          <div class="text-4xl flex-shrink-0">🌱</div>
+          <div>
+            <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-3">Investidor Ambiental</h3>
+            <p class="font-sans font-light text-base text-gray-600 leading-relaxed">
+              Monetize os 50 ha de mata nativa via crédito de carbono (VCR/REDD+) ou
+              CRA (Cota de Reserva Ambiental) — receita passiva com valorização garantida por lei e
+              demanda crescente no mercado global de carbono.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal flex gap-6 p-8 bg-white border-l-4 border-dourado shadow-sm hover:shadow-md transition-all" style="transition-delay:.1s">
+          <div class="text-4xl flex-shrink-0">🏡</div>
+          <div>
+            <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-3">Incorporador de Chácaras de Alto Padrão</h3>
+            <p class="font-sans font-light text-base text-gray-600 leading-relaxed">
+              Fracione a área em lotes exclusivos e multiplique o investimento com margens expressivas.
+              A 65 km de BH (Belo Horizonte), a demanda por propriedades rurais de qualidade nunca
+              foi tão alta — e a oferta, tão escassa.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal flex gap-6 p-8 bg-white border-l-4 border-verde-claro shadow-sm hover:shadow-md transition-all" style="transition-delay:.2s">
+          <div class="text-4xl flex-shrink-0">🐄</div>
+          <div>
+            <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-3">Agronegócio e Pecuária</h3>
+            <p class="font-sans font-light text-base text-gray-600 leading-relaxed">
+              42 hectares de pastagem formada e em expansão prontos para operação imediata.
+              Curral estruturado com 250m² em eucalipto serrado, cobertura de 40m², nascente própria
+              e energia elétrica com transformador particular 5kVA.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal flex gap-6 p-8 bg-white border-l-4 border-terra shadow-sm hover:shadow-md transition-all" style="transition-delay:.3s">
+          <div class="text-4xl flex-shrink-0">🏔️</div>
+          <div>
+            <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-3">Projeto Turístico Boutique</h3>
+            <p class="font-sans font-light text-base text-gray-600 leading-relaxed">
+              A sede centenária e o cenário da Serra de Moeda como palco para uma pousada eco-luxo
+              ou retiro de bem-estar exclusivo. Água própria, mata densa, silêncio absoluto —
+              e a capital mineira a apenas uma hora de distância.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Destaque hídrico -->
+      <div class="reveal mt-10 bg-verde-profundo text-white p-10 text-center">
+        <div class="text-5xl mb-4">💧</div>
+        <h3 class="font-serif text-3xl font-light mb-4">Esta Terra Foi Feita Para Quem Pensa Grande</h3>
+        <p class="font-sans font-light text-white/80 max-w-2xl mx-auto leading-relaxed text-base">
+          Seja para <strong class="text-dourado">preservar e rentabilizar</strong> a mata nativa,
+          <strong class="text-dourado">fracionar em chácaras exclusivas</strong> a 65 km de BH,
+          produzir no campo com estrutura já montada ou simplesmente ter um
+          <strong class="text-dourado">refúgio de verdade</strong> com água própria e silêncio absoluto —
+          esta propriedade entrega escala, localização e preço que o mercado não repete.
+          <br/><br/>
+          <span style="color: #FFD700; font-weight: 600;">83 hectares · R$ 2.200.000,00 · R$ 2,65 o m²</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SEDE CENTENÁRIA
+  ══════════════════════════════════════ -->
+  <section id="sede" class="py-24 px-6 bg-areia">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <div class="reveal">
+          <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-4">Patrimônio Histórico</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-light leading-tight mb-6">
+            O Tesouro<br/><em class="italic text-terra">Centenário</em>
+          </h2>
+          <div class="w-12 h-0.5 bg-dourado mb-8"></div>
+          <p class="font-sans font-light text-gray-700 leading-relaxed mb-5 text-base">
+            A sede da Fazenda Limoeiro é uma <strong>obra viva da arquitetura colonial mineira</strong>.
+            Com 150m² construídos em técnica de <em>pau a pique</em> — método secular que utiliza bambu,
+            madeira e argila —, piso de tábua corrida bruta, teto com esteira de bambu e porão em
+            alvenaria de pedra bruta: cada detalhe é autêntico e irreproduzível.
+          </p>
+          <p class="font-sans font-light text-gray-700 leading-relaxed mb-5 text-base">
+            Ao redor, um <strong>pomar histórico de 2.000m²</strong> aguarda ser revivido. Árvores
+            frutíferas, jardim de ervas aromáticas, varanda com vista para as montanhas.
+          </p>
+          <p class="font-sans font-light text-gray-700 leading-relaxed mb-8 text-base">
+            Para o comprador visionário, esta sede representa uma oportunidade única de
+            <strong>projeto de retrofit</strong> (modernização preservando a estrutura histórica):
+            transformá-la em uma <em>pousada boutique de luxo rústico</em> ou o refúgio familiar
+            mais fascinante da região.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="bg-white p-4 border border-dourado/30">
+              <div class="font-serif text-2xl font-semibold text-terra mb-1">+100</div>
+              <div class="font-sans text-sm text-gray-500 uppercase tracking-wider">Anos de História</div>
+            </div>
+            <div class="bg-white p-4 border border-dourado/30">
+              <div class="font-serif text-2xl font-semibold text-terra mb-1">150m²</div>
+              <div class="font-sans text-sm text-gray-500 uppercase tracking-wider">Área Construída</div>
+            </div>
+            <div class="bg-white p-4 border border-dourado/30">
+              <div class="font-serif text-2xl font-semibold text-terra mb-1">2.000m²</div>
+              <div class="font-sans text-sm text-gray-500 uppercase tracking-wider">Pomar Histórico</div>
+            </div>
+            <div class="bg-white p-4 border border-dourado/30">
+              <div class="font-serif text-lg font-semibold text-terra mb-1">Pau a Pique</div>
+              <div class="font-sans text-sm text-gray-500 uppercase tracking-wider">Técnica Secular</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Foto aérea recortada para mostrar a sede -->
+        <div class="reveal" style="transition-delay:.2s">
+          <img src="fotos/aerea.jpg"
+               alt="Sede da Fazenda Limoeiro vista do drone"
+               class="w-full shadow-xl mb-3"
+               style="height:380px; object-fit:cover; object-position:55% 55%;" />
+          <p class="text-sm text-center font-sans text-gray-400 italic">
+            Sede centenária e construções auxiliares — vista do drone
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       LOCALIZAÇÃO
+  ══════════════════════════════════════ -->
+  <section id="localizacao" class="py-24 px-6 bg-creme">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">Localização Privilegiada</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light divider-gold">Perto de Tudo. Longe do Caos.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal space-y-4">
+          <div class="flex items-start gap-4 p-6 bg-white border-l-4 border-dourado">
+            <span class="text-2xl">🏙️</span>
+            <div>
+              <div class="font-serif text-xl font-semibold text-verde-profundo mb-1">Belo Horizonte — BH</div>
+              <div class="font-sans text-base text-gray-600">Aproximadamente 65 km — cerca de 1h de viagem</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-6 bg-white border-l-4 border-verde-profundo">
+            <span class="text-2xl">⛽</span>
+            <div>
+              <div class="font-serif text-xl font-semibold text-verde-profundo mb-1">Acesso ao Asfalto</div>
+              <div class="font-sans text-base text-gray-600">Apenas 3,3 km de estrada rural até a rodovia pavimentada</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-6 bg-white border-l-4 border-terra">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <div class="font-serif text-xl font-semibold text-verde-profundo mb-1">Comarca de Belo Vale</div>
+              <div class="font-sans text-base text-gray-600">Registro cartorial regular, documentação completa</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-6 bg-white border-l-4 border-verde-claro">
+            <span class="text-2xl">🏔️</span>
+            <div>
+              <div class="font-serif text-xl font-semibold text-verde-profundo mb-1">Serra de Moeda</div>
+              <div class="font-sans text-base text-gray-600">Paisagem montanhosa protegida, clima ameno e ar puro</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa 3D como referência visual de localização e relevo -->
+        <div class="reveal" style="transition-delay:.2s">
+          <img src="fotos/mapa3d.jpg"
+               alt="Vista 3D do relevo e localização da Fazenda Limoeiro"
+               class="w-full shadow-xl" />
+          <p class="text-sm text-center font-sans text-gray-400 mt-2 italic">
+            Relevo 3D da região — notar a densidade de mata e o curso d'água (linha azul)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CORRETORES — Dois especialistas
+  ══════════════════════════════════════ -->
+  <section id="corretor" class="py-24 px-6 bg-areia">
+    <div class="max-w-5xl mx-auto text-center">
+
+      <div class="reveal mb-12">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">Sua Ponte para esse Patrimônio</p>
+        <h2 class="font-serif text-4xl font-light divider-gold">Quem Conduzirá<br/>a Sua Negociação</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Card Marco Antônio -->
+        <div class="reveal bg-white shadow-lg p-10">
+          <img src="fotos/corretor.jpg"
+               alt="Marco Antônio — Corretor responsável pela Fazenda Limoeiro"
+               class="w-36 h-36 rounded-full object-cover mx-auto mb-6 border-4 border-dourado shadow-lg"
+               style="object-position: center top;" />
+          <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-1">Marco Antônio</h3>
+          <p class="font-sans text-sm text-dourado tracking-widest uppercase mb-4">
+            CRECI-MG Nº 46.689 &nbsp;·&nbsp; Especialista em Imóveis Rurais de Alto Padrão
+          </p>
+          <div class="w-10 h-0.5 bg-dourado mx-auto mb-5"></div>
+          <p class="font-sans font-light text-gray-600 leading-relaxed text-base mb-8">
+            Com vasta experiência exclusiva no mercado de propriedades rurais
+            de Minas Gerais, Marco Antônio construiu uma reputação sólida baseada em transparência, conhecimento
+            técnico e profundo entendimento do que torna cada imóvel único. Especializado na região
+            metropolitana de BH e no Quadrilátero Ferrífero, já intermediou negociações
+            de alto valor com rigor documental e total comprometimento com os interesses do comprador.
+          </p>
+          <div class="flex flex-col gap-3 justify-center">
+            <a href="https://wa.me/5531987139637?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fazenda+Limoeiro."
+               target="_blank"
+               class="bg-dourado hover:bg-laranja text-white font-sans font-medium text-base tracking-widest
+                      uppercase px-8 py-3 transition-all duration-300 hover:scale-105">
+              💬 Falar no WhatsApp
+            </a>
+            <a href="mailto:bhfoxmarco@gmail.com"
+               class="border border-verde-profundo text-verde-profundo hover:bg-verde-profundo hover:text-white
+                      font-sans font-light text-base tracking-widest uppercase px-8 py-3 transition-all duration-300">
+              ✉️ Enviar E-mail
+            </a>
+          </div>
+        </div>
+
+        <!-- Card Márcio Campos -->
+        <div class="reveal bg-white shadow-lg p-10" style="transition-delay:.15s">
+          <img src="fotos/marcio.jpeg"
+               alt="Márcio Campos — Especialista em Gestão Fundiária"
+               class="w-36 h-36 rounded-full object-cover mx-auto mb-6 border-4 border-dourado shadow-lg"
+               style="object-position: center top;" />
+          <h3 class="font-serif text-2xl font-semibold text-verde-profundo mb-1">Márcio Campos</h3>
+          <p class="font-sans text-sm text-dourado tracking-widest uppercase mb-4">
+            CRECI-MG Nº 50.135 &nbsp;·&nbsp; Especialista em Gestão Fundiária e Negócios Imobiliários
+          </p>
+          <div class="w-10 h-0.5 bg-dourado mx-auto mb-5"></div>
+          <p class="font-sans font-light text-gray-600 leading-relaxed text-base mb-8">
+            Com sólida atuação no mercado imobiliário mineiro, Márcio Campos consolidou sua trajetória
+            na condução técnica, jurídica e estratégica de negociações imobiliárias urbanas e rurais,
+            destacando-se pela excelência em regularização fundiária e estruturação patrimonial.
+            Reconhecido pela visão consultiva diferenciada, desenvolve soluções pautadas em segurança jurídica,
+            rigor documental e inteligência territorial — com atuação destacada na Região Metropolitana de BH,
+            Vetor Sul e regiões de expansão imobiliária de Minas Gerais.
+          </p>
+          <div class="flex flex-col gap-3 justify-center">
+            <a href="https://wa.me/5531984583365?text=Ol%C3%A1+M%C3%A1rcio%2C+gostaria+de+saber+mais+sobre+a+Fazenda+Limoeiro."
+               target="_blank"
+               class="bg-dourado hover:bg-laranja text-white font-sans font-medium text-base tracking-widest
+                      uppercase px-8 py-3 transition-all duration-300 hover:scale-105">
+              💬 Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CTA FINAL — Contato via WhatsApp
+  ══════════════════════════════════════ -->
+  <section id="contato" class="py-24 px-6 bg-verde-profundo">
+    <div class="max-w-3xl mx-auto text-center">
+
+      <div class="reveal mb-14">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">Dê o Primeiro Passo</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-white divider-gold">Agende Sua Visita</h2>
+        <p class="mt-8 font-sans font-light text-white/70 max-w-xl mx-auto text-base leading-relaxed">
+          Oportunidades como esta não esperam. Entre em contato diretamente com nossos especialistas
+          e agende sua visita à Fazenda Limoeiro com toda a segurança e agilidade que você merece.
+        </p>
+      </div>
+
+      <div class="reveal flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531987139637?text=Quero+agendar+uma+visita+%C3%A0+Fazenda+Limoeiro+em+Moeda%2FMG"
+           target="_blank"
+           class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white
+                  font-sans font-medium text-base tracking-wide uppercase px-8 py-4 transition-all duration-300 hover:scale-105">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Agendar Visita Agora
+        </a>
+        <a href="https://wa.me/5531987139637?text=Gostaria+de+receber+a+ficha+t%C3%A9cnica+da+Fazenda+Limoeiro"
+           target="_blank"
+           class="inline-flex items-center justify-center gap-3 border border-white/30 hover:border-dourado
+                  text-white hover:text-dourado font-sans font-light text-base tracking-wide uppercase
+                  px-8 py-4 transition-all duration-300">
+          📋 Receber Ficha Técnica Completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ══════════════════════════════════════
+       VÍDEO — Cachoeira da Fazenda
+  ══════════════════════════════════════ -->
+  <section class="py-24 px-6 bg-areia">
+    <div class="max-w-5xl mx-auto text-center">
+
+      <div class="reveal mb-12">
+        <p class="text-dourado font-sans text-sm tracking-[0.3em] uppercase mb-3">A Fazenda em Movimento</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light divider-gold">Uma Cachoeira<br/><em class="italic text-terra">Dentro da Propriedade</em></h2>
+        <p class="mt-8 font-sans font-light text-verde-claro max-w-2xl mx-auto text-base leading-relaxed">
+          Água cristalina brotando da própria terra. A nascente da Fazenda Limoeiro alimenta este curso d'água permanente — um privilégio cada vez mais raro e valioso.
+        </p>
+      </div>
+
+      <!-- Player do YouTube em formato vertical (stories), centralizado e elegante -->
+      <!-- O vídeo é hospedado no YouTube para não pesar no repositório e carregar rápido em qualquer dispositivo -->
+      <div class="reveal flex justify-center">
+        <div style="position: relative; width: 100%; max-width: 340px; aspect-ratio: 9/16; background: #000; box-shadow: 0 25px 60px rgba(0,0,0,0.3);">
+          <iframe
+            src="https://www.youtube.com/embed/Q2NYK-Olzvo?autoplay=0&rel=0&modestbranding=1"
+            title="Cachoeira da Fazenda Limoeiro — Moeda, MG"
+            style="position: absolute; inset: 0; width: 100%; height: 100%; border: none;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-black/90 py-10 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-6 h-6 border border-dourado/60 rotate-45 flex items-center justify-center">
+          <span class="rotate-[-45deg] text-dourado text-sm font-serif font-semibold">L</span>
+        </div>
+        <span class="font-serif text-white text-xl tracking-widest uppercase">Fazenda Limoeiro</span>
+      </div>
+      <p class="font-sans text-white/40 text-sm leading-relaxed mb-4">
+        Região do Limoeiro · Município de Moeda · MG &nbsp;|&nbsp; Comarca de Belo Vale &nbsp;|&nbsp; 83 hectares registrados
+      </p>
+      <p class="font-sans text-white/25 text-sm">
+        © 2025 · Imóvel intermediado por Marco Antônio · CRECI-MG (Conselho Regional de Corretores de Imóveis — MG) Nº 46.689<br/>
+        As informações e áreas apresentadas têm caráter informativo e estão sujeitas à verificação documental.
+      </p>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a href="https://wa.me/5531987139637?text=Ol%C3%A1%2C+tenho+interesse+na+Fazenda+Limoeiro."
+     target="_blank"
+     class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5a] text-white rounded-full
+            w-14 h-14 flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300"
+     title="Falar no WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Scroll Reveal — anima elementos ao entrar na tela durante a rolagem da página
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Navbar — alterna fundo transparente ↔ verde escuro conforme a rolagem
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(30,63,32,0.97)';
+        nav.style.backdropFilter = 'blur(8px)';
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.3)';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
